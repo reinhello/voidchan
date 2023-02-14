@@ -1,0 +1,13 @@
+{
+    "Version": "13.3.0",
+    "Name": "VoidChan",
+    "DestinationType": "ImageUploader",
+    "RequestMethod": "POST",
+    "RequestURL": "https://voidchan.me/api/sharex",
+    "Headers": {
+        "Authorisation": "SecretAuthHere"
+    },
+    "Body": "MultipartFormData",
+    "FileFormName": "file",
+    "URL": "$json.url"
+}
