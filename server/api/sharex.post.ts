@@ -3,7 +3,6 @@ import { Files, IFiles } from "../database/models/files.model";
 import { Profile, IProfile } from "../database/models/profile.model";
 import useFiles from "~~/utils/useFiles";
 import mime from "mime";
-import fs from "fs";
 
 const config = useRuntimeConfig();
 
