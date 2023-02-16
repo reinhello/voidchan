@@ -28,15 +28,19 @@ const filesSchema = new Schema<IFiles>({
     required: true,
   },
   uploader: {
+    admin: {
+      type: Schema.Types.Boolean,
+      required: true,
+    },
+    authKey: {
+      type: Schema.Types.String,
+      required: true,
+    },
     name: {
       type: Schema.Types.String,
       required: true,
     },
     email: {
-      type: Schema.Types.String,
-      required: true,
-    },
-    authKey: {
       type: Schema.Types.String,
       required: true,
     },
