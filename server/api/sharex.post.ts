@@ -26,9 +26,10 @@ export default defineEventHandler(async (event) => {
     buffer: files[0].buffer.toString("base64"),
     mimetype: files[0].mimetype,
     uploader: {
+      admin: profile.admin,
+      authKey: profile.authKey,
       name: profile.name,
       email: profile.email,
-      authKey: profile.authKey,
     },
   } as IFiles);
 
