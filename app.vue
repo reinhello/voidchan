@@ -1,6 +1,6 @@
 <template>
   <NuxtPage />
-  <Footer />
+  <!-- <Footer /> -->
 </template>
 
 <script setup lang="ts">
