@@ -4,8 +4,16 @@ import { getServerSession } from "#auth";
 
 export default defineEventHandler(async (event) => {
   const session = await getServerSession(event) as any;
-  const profile = await Profile.findOne({ email: session?.user?.email }) as IProfile;
   const file = getRouterParam(event, "file") as string;
+
+  if (!session) {
+    return {
+      code: 403,
+      message: "Not Allowed",
+    }
+  }
+
+  const profile = await Profile.findOne({ email: session?.user?.email }) as IProfile;
 
   if (profile.admin) {
     await Files.findOneAndDelete({ id: file });
