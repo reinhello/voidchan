@@ -6,6 +6,11 @@
 <script setup lang="ts">
   useHead({
     title: "VoidChan",
+    script: [
+      {
+        src: "https://kit.fontawesome.com/e931be9ca1.js",
+      },
+    ],
     meta: [
       {
         name: "description",
