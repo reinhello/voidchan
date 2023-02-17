@@ -11,14 +11,17 @@
       <img v-else class="noselect p-5" ondragstart="return false" draggable="false" :src="'http://localhost:3000/raw/' + fileParam" />
       <p>Uploaded by <b>{{ files?.uploader?.name }}</b> at <b>{{ moment(files?.date).format("D/MM/YY, h:mm:ss A") }}</b></p>
       <br class="noselect" ondragstart="return false" draggable="false">
-      <nuxt-link to="/"><button class="btn">Home</button></nuxt-link>
+      <div>
+        <nuxt-link to="/"><button class="btn mx-2"><i class="fas fa-home"></i> Home</button></nuxt-link>
+        <button class="btn" @click="downloadImage()"><i class="fas fa-cloud-download-alt"></i> Download</button>
+      </div>
       <br class="noselect" ondragstart="return false" draggable="false">
       <div v-if="status === 'authenticated'">
         <div v-if="files?.uploader?.admin">
           <h2 class="text-2xl p-5 font-bold">Admin Area</h2>
-          <button class="btn" style="border-color: #ad0c00;" @click="deleteImage()">Delete Image</button>
-          <button v-if="files?.nsfw" class="btn mx-2" style="border-color: #d8e43a;" @click="markNSFW(false)">Mark as non-NSFW</button>
-          <button v-else class="btn mx-2" style="border-color: #d8e43a;" @click="markNSFW(true)">Mark as NSFW</button>
+          <button class="btn" style="border-color: #ad0c00;" @click="deleteImage()"><i class="fas fa-trash-alt"></i> Delete Image</button>
+          <button v-if="files?.nsfw" class="btn mx-2" style="border-color: #d8e43a;" @click="markNSFW(false)"><i class="fas fa-ban"></i> Mark as non-NSFW</button>
+          <button v-else class="btn mx-2" style="border-color: #d8e43a;" @click="markNSFW(true)"><i class="fas fa-ban"></i> Mark as NSFW</button>
           <br class="noselect" ondragstart="return false" draggable="false">
           <br class="noselect" ondragstart="return false" draggable="false">
         </div>
@@ -52,6 +55,10 @@ function deleteImage() {
   });
 
   window.location.href = "/";
+}
+
+function downloadImage() {
+  window.location.href = `/api/download/${fileParam}`;
 }
 
 function markNSFW(val: boolean) {
