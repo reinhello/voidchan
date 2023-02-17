@@ -6,6 +6,7 @@ export interface IFiles {
   date: Date;
   buffer: string;
   mimetype: string;
+  nsfw: boolean;
   uploader: IProfile;
 }
 
@@ -25,6 +26,11 @@ const filesSchema = new Schema<IFiles>({
   },
   mimetype: {
     type: Schema.Types.String,
+    required: true,
+  },
+  nsfw: {
+    type: Schema.Types.Boolean,
+    default: false,
     required: true,
   },
   uploader: {

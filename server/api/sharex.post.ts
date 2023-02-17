@@ -25,6 +25,7 @@ export default defineEventHandler(async (event) => {
     date: new Date(),
     buffer: files[0].buffer.toString("base64"),
     mimetype: files[0].mimetype,
+    nsfw: false,
     uploader: {
       admin: profile.admin,
       authKey: profile.authKey,

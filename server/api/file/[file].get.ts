@@ -31,6 +31,7 @@ export default defineEventHandler(async (event) => {
       id: file.id,
       date: file.date,
       ext: mime.getExtension(file.mimetype),
+      nsfw: file.nsfw,
       uploader: {
         admin: profile.admin,
         name: file.uploader.name,
