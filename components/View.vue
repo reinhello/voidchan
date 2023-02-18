@@ -71,4 +71,34 @@ function markNSFW(val: boolean) {
 
   refreshPage();
 }
+
+useHead({
+  title: `VoidChan - ${fileParam}`,
+  meta: [
+    {
+      property: "og:title",
+      content: `VoidChan`,
+    },
+    {
+      property: "og:site_name",
+      content: `${fileParam} • Uploaded by ${files.value?.uploader?.name}`,
+    },
+    {
+      property: "og:url",
+      content: `http://localhost:3000/v/${fileParam}`,
+    },
+    {
+      property: "og:image",
+      content: `http://localhost:3000/raw/${fileParam}`,
+    },
+    {
+      property: "theme-color",
+      content: "#42B893",
+    },
+    {
+      property: "twitter:card",
+      content: "summary_large_image",
+    },
+  ],
+});
 </script>
